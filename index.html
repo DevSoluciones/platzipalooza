@@ -1,0 +1,536 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platzipalooza </title>
+    <link rel="stylesheet" href="assets/icons/foundation-icons.css">
+    <link rel="stylesheet" href="assets/css/foundation-flex.css">
+    <link rel="stylesheet" href="assets/css/motion-ui.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif|Ravi+Prakash">
+    <link rel="stylesheet" href="assets/css/pricing.css">
+    <link rel="stylesheet" href="assets/css/dashboard_nav_card.css">
+    <link rel="stylesheet" href="assets/css/inline_quote.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+    
+        <div class="off-canvas-wrapper">
+          <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+            <div id="offCanvas" class="off-canvas position-left" data-off-canvas>
+                <button class="close-button" aria-level="Close menu" type="button" data-close>
+                    <span aria-hidden="true">&times;</span>
+                </button>            
+                <nav data-magellan>
+                    <ul class="menu vertical" data-drilldown>
+                        <li><a href="#pricing-container">Tickets</a></li>
+                        <li>
+                        <a href="#lineup-container">Lineup</a>
+                        <ul class="vertical menu">
+                            <li><a id="viernes-canvas" data-toggle-dia="panel-viernes" href="#lineup-container">Viernes</a></li>
+                            <li><a id="sabado-canvas" data-toggle-dia="panel-sabado" href="#lineup-container">Sábado</a></li>
+                            <li><a id="domingo-canvas" data-toggle-dia="panel-domingo" href="#lineup-container">Domingo</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="#info-container">Info</a></li>
+                        <li><a href="#suscribete-container">Suscribete</a></li>              
+                    </ul>
+                </nav>
+            </div>
+    
+            <div class="off-canvas-content" data-off-canvas-content>
+              <!-- Social -->
+                <section id="social-container">
+                    <div class="row align-center text-center">
+                        <div class="columns small-1"><a href="#" target="_blank"><i class="fi-social-facebook"></i></a></div>
+                        <div class="columns small-1"><a href="#" target="_blank"><i class="fi-social-twitter"></i></a></div>
+                        <div class="columns small-1"><a href="#" target="_blank"><i class="fi-social-instagram"></i></a></div>
+                    </div>
+                </section>
+              <!-- /Social -->
+    
+              <!-- Logo-->
+                <section id="logo-container">
+                    <!-- callout una clase especial de foundation que combina celdas -->
+                    <div class="callout text-center">
+                        <h1>Platzipalooza </h1>
+                    </div>
+                </section>
+              <!-- /Logo -->
+    
+              <!-- Menu-->
+                          <section id="scrollSticky" data-sticky-container>
+                            <!-- la clase dropdown es para aplicar estilos de menu desplegable -->
+                            <!-- el atributo data-dropdown-menu se utiliza para darle funcionalidad javascript al menu por parte de foundation -->
+                            <!-- las clases de alineacion (align-spaced) vista en las practicas de rejillas tambien pueden ser aplicadas a otros elementos -->
+                            <!-- Los atributos data-sticky data-options data-sticky-on data-top-anchor
+                            son necesarios para hacer uso de una barra que se desplace atraves de la pagina al navegar
+                            data-sticky-on: a partir de que tamaño se activa
+                            data-top-anchor: la seccion ancla de la barra al pasarse de esa seccion se desplasa la barra
+                            -->
+                            <div class="data-sticky" data-sticky data-options="marginTop: 0" data-sticky-on="small" data-top-anchor="scrollSticky">
+                              <!-- 
+                                al usar magellan los enlaces deben contener un href bien sea un ancla o enlace
+                                ya que sino lo tiene puede provocar un error
+                                -->
+                              <nav id="menu-container" data-magellan><!-- el atributo data-magellan sirve para hacer una navegacion suave atraves de la pagina y se conbina con el uso de data-magellan-target en las secciones donde queremos navegar-->
+                                <ul class="menu align-spaced show-for-small-only">
+                                  <li>
+                                    <!-- se coloco el href #menubar para evitar que ocurra un error al interactuar con el enlace-->
+                                    <a href="#menubar" data-toggle="offCanvas">Menu</a>
+                                  </li>
+                                </ul>
+                                <ul class="menu dropdown align-spaced show-for-medium" data-dropdown-menu>
+                                  <li><a href="#pricing-container">Tickets</a></li>
+                                  <li>
+                                    <a href="#lineup-container">Lineup</a>
+                                    <ul id="menu-subcontainer" class="menu">
+                                      <li><a id="viernes-sticky" data-toggle-dia="panel-viernes" href="#lineup-container">Viernes</a></li>
+                                      <li><a id="sabado-sticky" data-toggle-dia="panel-sabado" href="#lineup-container">Sábado</a></li>
+                                      <li><a id="domingo-sticky" data-toggle-dia="panel-domingo" href="#lineup-container">Domingo</a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="#info-container">Info</a></li>
+                                  <li><a href="#suscribete-container">Suscribete</a></li>
+                                </ul>
+                              </nav>
+                            </div>
+                          </section>
+              <!-- /Menu-->
+    
+              <!-- Tickets -->
+                          <!-- Call to Action: es un botón o enlace situado en nuestro site que busca atraer clientes potenciales y convertirles en clientes finales, normalmente a través de un formulario en una página de destino o landing page. -->
+                          <section id="tickets-action">
+                            <!-- la clase large le añade padding al contenido de la etiqueta que lo usa -->
+                            <div class="callout large text-center" data-magellan>
+                              <a class="button large hollow" href="#pricing-container">Comprar Boletos</a>
+                            </div>
+                          </section>
+              <!-- /Tickets-->
+    
+              <!-- Lineup -->
+                          <section id="lineup-container" data-magellan-target="lineup-container">
+                            <h3 class="text-center">Lineup</h3>
+                            <!-- el orden del atributo data-tabs es importante sino no funcionaria a pesar de estar presente en la etiqueta -->
+                            <ul class="tabs text-center" data-tabs id="lineup-tabs">
+                              <li class="tabs-title is-active">
+                                <a id="viernes" href="#panel-viernes">Viernes</a>
+                              </li>
+                              <li class="tabs-title">
+                                <a id="sabado" href="#panel-sabado">Sábado</a>
+                              </li>
+                              <li class="tabs-title">
+                                <a id="domingo" href="#panel-domingo">Domingo</a>
+                              </li>
+                            </ul>
+                
+                            <div class="tabs-content" data-tabs-content="lineup-tabs">
+                
+                              <div class="tabs-panel is-active" id="panel-viernes">
+                                
+                                <div class="row">
+                                                        <div class="large reveal" id="gunsBiografia" data-animation-in="spin-in" data-animation-out="spin-out" data-reveal>
+                                                            
+                                                            <div class="row">
+                                                                <div class="small-12 columns">
+                                                                    <div class="quote-inline-wrap-article-content">
+                                    
+                                                                        <div class="quote-inline-wrap">
+                                                                            <div class="quote-inline-marks">“<h3>Biografía</h3></div>
+                                                                            <div class="quote-inline-testimonial">
+                                                                                <div class="card">
+                                                                                    <div class="card-secction">
+                                                                                        <table class="unstriped">
+                                                                                            <tr>
+                                                                                                <td>CATEGORÍA</td>
+                                                                                                <td>ROCK AND ROLL</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>FECHA DE FUNDACION</td>
+                                                                                                <td>26/12/1985</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>CIUDAD</td>
+                                                                                                <td>NEW YORK</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>GENERO MUSICAL</td>
+                                                                                                <td>ROCK AND ROLL</td>
+                                                                                            </tr>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="quote-inline-person">
+                                                                                <div class="quote-inline-photo">
+                                                                                    <img src="https://www.biografiasyvidas.com/biografia/g/fotos/guns_and_roses_1.jpg" alt="Guns N' Roses">
+                                                                                </div>
+                                                                                <p>Guns N' Roses</p>
+                                                                                <p>Important band the rock</p>
+                                                                            </div>
+                                                                        </div>
+                                    
+                                                                            <p>Banda de rock estadounidense formada en 1985 en Los Ángeles alrededor del cantante norteamericano Axl Rose (William Bill Bailey, 1962) y del guitarrista británico Slash (Saul Hudson, 1965). Su imagen provocadora, su filosofía fiel al lema “sexo, drogas y rock and roll” y sus letras agresivas fueron siempre motivo de escándalo en Estados Unidos, donde llegaron a alzarse voces pidiendo su censura. Su combinación de rock duro y punk tuvo un éxito arrasador: de Appetite for Destruction (1987) se vendieron ocho millones de copias solamente en Estados Unidos. Sus álbumes Use Your Illusion I y II (1991) y The Spaghetti Incident? (1993) tuvieron un éxito similar.</p>
+                                    
+                                                                            <p>Su primer disco, Live... like a suicide (1986), pasó inadvertido, pero tras una serie intensiva de conciertos por el territorio californiano, la productora Geffen Records los fichó a finales 1986. El año siguiente contaron con una excelente oportunidad para darse a conocer a nivel nacional al convertirse en teloneros de una gira de los legendarios Iron Maiden, aunque la nueva banda no pudo completarla: Axl Rose perdió la voz en mitad de la gira y Slash tuvo que ser llevado a una clínica para recuperarse de sus continuos abusos de alcohol y de drogas.</p>
+                                    
+                                                                            <p>Regresaron a los escenarios como teloneros de Mötley Crue y editaron su primer álbum, Appetite for Destruction, en agosto de 1987. Una larga gira nacional de catorce meses los llevaría a convertirse en los intérpretes de rock más solicitados para el directo, por encima incluso de los Aerosmith. En julio de 1988 editaron el single Sweet Child o'Mine, que sería el primer número uno de la banda y recibiría el premio Grammy a la mejor canción de rock del año. Interrumpieron su gira americana para tocar en el mítico festival de Donnington Monsters of Rock (Gran Bretaña), en el que la banda tuvo que detener en tres ocasiones su actuación para calmar a la masa enfebrecida. Favorecido por los directos, en septiembre de 1988 su álbum Appetite for Destruction alcanzó el número uno en las listas americanas.</p>
+                                    
+                                                                            <p>A finales del año 1988 editaron G 'N' R Lies, con cuatro canciones de su primer disco y cuatro temas nuevos, coincidiendo con una gira por Japón. En 1991 vio luz, por fin, un gran proyecto: Use Your Illusion, álbum compuesto por dos discos dobles (numerados I y II) que no llegaría inicialmente a cubrir las expectativas de éxito, a pesar de la indudable calidad de la mayoría de los temas contenidos en ambos volúmenes, como Estranged, Civil War, Don't damn me o la versión del clásico Knockin' on heaven's door, de Bob Dylan.</p>
+                                    
+                                                                            <p>La vida irregular de sus miembros provocó largos períodos de inactividad en la banda. En 1992, el compositor de buena parte de sus temas, Izzy Stradlin, abandonó Guns N' Roses y formó su propio grupo: The Ju Ju Hounds. El último trabajo de la formación, The Spaghetti Incident?, data de 1993, con una edición muy retrasada debido al veto de la compañía a la inclusión de un tema (Look at your own way) compuesto por Charles Manson, uno de los asesinos más famosos de la historia reciente norteamericana. El álbum era una especie de homenaje de la banda a todas aquellas canciones y grupos que habían influido en su música.</p>
+                                    
+                                                                            <p>A esas alturas, Guns N' Roses había adquirido ya una reputación internacional que sobrepasaba, en cierta forma, las posibilidades del supervivencia de un grupo que, como tal, dejó de existir. Desde entonces, Slash trabajó con artistas tan variopintos como Michael Jackson, Iggy Pop, Lenny Kravitz o la cantante española Marta Sánchez; el único que siguió activo en la escena musical fue Izzy Stradlin con sus Ju Ju Hounds, aunque con una modesta presencia en el circuito local de Los Ángeles.</p>
+                                    
+                                                                            <p>En diciembre de 1999, su casa discográfica, Geffen Records, lanzó al mercado el último trabajo de la banda: Live Era '87-93', un álbum en directo (con sensibles retoques de estudio) que contiene sus mejores éxitos de siempre y un único tema inédito (It's allright), pese a que formaba parte del repertorio en directo del grupo desde los tiempos más remotos.</p>
+                                    
+                                                                            <p>El lanzamiento de este trabajo, así como la inclusión de un nuevo tema (Oh, my good!) en la banda sonora de la película de El final de los días (1999), protagonizada por Arnold Schwarzenegger, dispararon los rumores sobre el regreso de Guns N' Roses, sin que llegara a precisarse cuántos de sus componentes originales de la banda volverían con ella. Fue finalmente Axl Rose quien reconstituyó el grupo con nuevos integrantes. La formación volvió a los escenarios en 2001 y, tras muchos problemas y aplazamientos, lanzó en 2008 el primer disco de su nueva etapa, Chinese Democracy, promocionado en una gira con el mismo nombre.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                          <button class="close-button" data-close aria-label="Close" type="button">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                    <div class="small-12 medium-4 medium-offset-4 columns align-center">
+                                      <a id="biografia" class="dashboard-nav-card biografia" href="#" data-open="gunsBiografia">
+                                        <i class="dashboard-nav-card-icon fi-results-demographics" aria-hidden="true"></i>
+                                        <h3 class="dashboard-nav-card-title">Biografía</h3>
+                                      </a>                   
+                                    </div>
+                
+                                    <div class="small-12 medium-6 columns">
+                                      <div id="guns-uno" class="card" data-animation="slide-in-left">
+                                        <img src="http://i2.mirror.co.uk/incoming/article675034.ece/ALTERNATES/s615/Axl-Rose-and-Slash-of-Guns-N-Roses-perform-live-at-Rock-In-Rio-II-on-January-15-1991.jpg" alt="Gun n' Roses">
+                                        <div class="card-divider">Guns n' Roses</div>
+                                      </div>
+                                    </div>
+                
+                                    <div class="small-12 medium-6 columns">
+                                      <div id="guns-dos" class="card" data-animation="slide-in-right">
+                                        <img src="http://i2.mirror.co.uk/incoming/article675034.ece/ALTERNATES/s615/Axl-Rose-and-Slash-of-Guns-N-Roses-perform-live-at-Rock-In-Rio-II-on-January-15-1991.jpg" alt="Gun n' Roses">
+                                        <div class="card-divider">Guns n' Roses</div>
+                                      </div>
+                                    </div>
+                
+                                    <div class="small-12 medium-6 columns">
+                                      <div id="guns-tres" class="card" data-animation="slide-in-up">
+                                        <img src="http://i2.mirror.co.uk/incoming/article675034.ece/ALTERNATES/s615/Axl-Rose-and-Slash-of-Guns-N-Roses-perform-live-at-Rock-In-Rio-II-on-January-15-1991.jpg" alt="Gun n' Roses">
+                                        <div class="card-divider">Guns n' Roses</div>
+                                      </div>
+                                    </div>
+                
+                                    <div class="small-12 medium-6 columns">
+                                      <div id="guns-cuatro" class="card" data-animation="slide-in-down">
+                                        <img src="http://i2.mirror.co.uk/incoming/article675034.ece/ALTERNATES/s615/Axl-Rose-and-Slash-of-Guns-N-Roses-perform-live-at-Rock-In-Rio-II-on-January-15-1991.jpg" alt="Gun n' Roses">
+                                        <div class="card-divider">Guns n' Roses</div>
+                                      </div>
+                                    </div>
+                
+                                </div>
+                                  
+                              </div>
+                
+                              <div class="tabs-panel" id="panel-sabado">
+                
+                                <div class="row">
+                
+                                                        <div class="large reveal" id="beatlesBiografia" data-animation-in="spin-in" data-animation-out="spin-out" data-reveal>
+                                                            
+                                                            <div class="row">
+                                                                <div class="small-12 columns">
+                                                                    <div class="quote-inline-wrap-article-content">
+                                    
+                                                                        <div class="quote-inline-wrap">
+                                                                            <div class="quote-inline-marks">“<h3>Biografía</h3></div>
+                                                                            <div class="quote-inline-testimonial">
+                                                                                <div class="card">
+                                                                                    <div class="card-secction">
+                                                                                        <table class="unstriped">
+                                                                                            <tr>
+                                                                                                <td>CATEGORÍA</td>
+                                                                                                <td>ROCK AND ROLL</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>FECHA DE FUNDACION</td>
+                                                                                                <td>26/12/1967</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>CIUDAD</td>
+                                                                                                <td>LIVER POLL</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td>GENERO MUSICAL</td>
+                                                                                                <td>ROCK AND ROLL</td>
+                                                                                            </tr>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="quote-inline-person">
+                                                                                <div class="quote-inline-photo">
+                                                                                    <img src="https://www.biografiasyvidas.com/biografia/b/fotos/beatles_1.jpg" alt="Beatles">
+                                                                                </div>
+                                                                                <p>Beatles</p>
+                                                                                <p>Important band the rock</p>
+                                                                            </div>
+                                                                        </div>
+                                    
+                                                                        <p>The Beatles fue una banda de pop/rock inglesa activa durante la década de 1960, y reconocida como la más exitosa comercialmente y la más alabada por la crítica en la historia de la música popular.1 2 3 4 5 Formada en Liverpool, estuvo constituida desde 1962 por John Lennon (guitarra rítmica, vocalista), Paul McCartney (bajo, vocalista), George Harrison (guitarra solista, vocalista) y Ringo Starr (batería, vocalista). Enraizada en el skiffle y el rock and roll de los años 1950, la banda trabajó más tarde con distintos géneros musicales, que iban desde las baladas pop hasta el rock psicodélico, incorporando a menudo elementos clásicos, entre otros, de forma innovadora en sus canciones. La naturaleza de su enorme popularidad, que había emergido primeramente con la moda de la «Beatlemanía», se transformó al tiempo que sus composiciones se volvieron más sofisticadas. Llegaron a ser percibidos como la encarnación de los ideales progresistas, extendiendo su influencia en las revoluciones sociales y culturales de la década de 1960.</p>
+                                    
+                                                                        <p>Con una formación inicial de cinco componentes que incluía a Lennon, McCartney, Harrison, Stuart Sutcliffe (bajo) y Pete Best (batería), la banda construyó su reputación en los clubes de Liverpool y Hamburgo sobre un período de tres años a partir de 1960. Sutcliffe abandonó la formación en 1961, y Best fue reemplazado por Starr al año siguiente. Establecidos como grupo profesional después de que Brian Epstein les ofreciera ser su representante, y con su potencial musical mejorado por la creatividad del productor George Martin, lograron éxito comercial en el Reino Unido a finales de 1962 con su primer sencillo, «Love Me Do». A partir de ahí, fueron adquiriendo popularidad internacional a lo largo de los siguientes años, en los cuales hicieron un extenso número de giras hasta 1966, año en que cesaron la actividad en vivo para dedicarse únicamente a la grabación en el estudio hasta su disolución en 1970. Después, todos sus integrantes se embarcaron en exitosas carreras independientes de diversa duración. Lennon sería asesinado a las afueras de su casa de Nueva York en 1980, y Harrison fallecería de cáncer en 2001. McCartney y Starr, los dos miembros sobrevivientes, aún permanecen musicalmente activos.</p>
+                                    
+                                                                        <p>Durante sus años de estudio crearon algunos de sus mejores materiales, incluyendo el álbum Sgt. Pepper's Lonely Hearts Club Band (1967), considerado por muchos como una obra maestra. Cuatro décadas después de su separación, la música que crearon continúa siendo popular. Se mantienen como el grupo con más números uno en las listas británicas, situando más álbumes en esta posición que cualquier otra agrupación musical.6 De acuerdo con las certificaciones de la RIAA, han vendido más discos en los Estados Unidos que cualquier otro artista.4 Fueron galardonados con siete premios Grammy,7 y recibieron un total de quince premios Ivor Novello de parte de la British Academy of Songwriters, Composers and Authors.8 En 2004, la revista Rolling Stone los clasificó en el número uno en su lista de los «100 artistas más grandes de todos los tiempos».1 De acuerdo con la misma publicación, la música innovadora de The Beatles y su impacto cultural ayudaron a definir los años 1960.9 En 2010, el canal de televisión especializado en música VH1 los clasificó en el número uno en su lista de los «100 artistas más grandes de todos los tiempos».10 También fueron colocados en el puesto número 1 por el sitio de Internet Acclaimed Music en su lista «The Top 1000 Artists of All Time».2 Figuran, asimismo, en la primera posición como los más grandes artistas de todos los tiempos de las listas Hot 100 y Billboard 200 en la clasificación de Billboard de 2015.</p>                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                          <button class="close-button" data-close aria-label="Close" type="button">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                    <div class="small-12 medium-4 medium-offset-4 columns align-center">
+                                      <a id="biografia" class="dashboard-nav-card biografia" href="#" data-open="beatlesBiografia">
+                                        <i class="dashboard-nav-card-icon fi-results-demographics" aria-hidden="true"></i>
+                                        <h3 class="dashboard-nav-card-title">Biografía</h3>
+                                      </a>                   
+                                    </div>
+                
+                                    <div class="small-12 medium-6 columns">
+                                      <div id="beatles-uno" class="card" data-animation="hinge-in-from-top">
+                                        <img src="https://img.gestion.pe/files/article_content_ec_fotos/uploads/2017/11/07/5a02412f0fa39.jpeg" alt="Beatles">
+                                        <div class="card-divider">Beatles</div>
+                                      </div>
+                                    </div>
+                
+                                    <div class="small-12 medium-6 columns">
+                                      <div id="beatles-dos" class="card" data-animation="hinge-in-from-bottom">
+                                        <img src="https://img.gestion.pe/files/article_content_ec_fotos/uploads/2017/11/07/5a02412f0fa39.jpeg" alt="Beatles">
+                                        <div class="card-divider">Beatles</div>
+                                      </div>
+                                    </div>
+                
+                                    <div class="small-12 medium-6 columns">
+                                      <div id="beatles-tres" class="card" data-animation="hinge-in-from-right">
+                                        <img src="https://img.gestion.pe/files/article_content_ec_fotos/uploads/2017/11/07/5a02412f0fa39.jpeg" alt="Beatles">
+                                        <div class="card-divider">Beatles</div>
+                                      </div>
+                                    </div>
+                
+                                    <div class="small-12 medium-6 columns">
+                                      <div id="beatles-cuatro" class="card" data-animation="hinge-in-from-left">
+                                        <img src="https://img.gestion.pe/files/article_content_ec_fotos/uploads/2017/11/07/5a02412f0fa39.jpeg" alt="Beatles">
+                                        <div class="card-divider">Beatles</div>
+                                      </div>
+                                    </div>
+                                </div>
+                
+                              </div>
+                
+                              <div class="tabs-panel" id="panel-domingo">
+                
+                                <div class="row">
+                                                      <div class="large reveal" id="queensBiografia" data-animation-in="spin-in" data-animation-out="spin-out" data-reveal>
+                                                          
+                                                          <div class="row">
+                                                              <div class="small-12 columns">
+                                                                  <div class="quote-inline-wrap-article-content">
+                                  
+                                                                      <div class="quote-inline-wrap">
+                                                                          <div class="quote-inline-marks">“<h3>Biografía</h3></div>
+                                                                          <div class="quote-inline-testimonial">
+                                                                              <div class="card">
+                                                                                  <div class="card-secction">
+                                                                                      <table class="unstriped">
+                                                                                          <tr>
+                                                                                              <td>CATEGORÍA</td>
+                                                                                              <td>ROCK AND ROLL</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                              <td>FECHA DE FUNDACION</td>
+                                                                                              <td>26/12/1983</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                              <td>CIUDAD</td>
+                                                                                              <td>LIVER POLL</td>
+                                                                                          </tr>
+                                                                                          <tr>
+                                                                                              <td>GENERO MUSICAL</td>
+                                                                                              <td>ROCK AND ROLL</td>
+                                                                                          </tr>
+                                                                                      </table>
+                                                                                  </div>
+                                                                              </div>
+                                                                          </div>
+                                                                          <div class="quote-inline-person">
+                                                                              <div class="quote-inline-photo">
+                                                                                  <img src="https://www.biografiasyvidas.com/biografia/q/fotos/queen.jpg" alt="Queens">
+                                                                              </div>
+                                                                              <p>Queens</p>
+                                                                              <p>Important band the rock</p>
+                                                                          </div>
+                                                                      </div>
+                                  
+                                                                      <p>Banda de rock británica formada por Freddie Mercury (voz), Brian May (guitarra), Roger Taylor (batería) y John Deacon (bajo). El grupo gozó de gran fama a finales de los setenta y durante toda la década de los ochenta, y sus discos fueron superventas incluso después del fallecimiento en 1991 de Freddie Mercury.</p>
+                                  
+                                                                      <p>Sus orígenes se remontan al inicio de los sesenta, cuando el joven guitarrista Brian Harold May (nacido en 1947) comenzó a tocar en un grupo semiprofesional llamado 1984. Brian, experto conocedor de varios instrumentos de cuerda, diseñaba incluso sus propias guitarras, conocidas posteriormente como el modelo May.</p>
+                                  
+                                                                      <p>Brian May pasó después a formar parte de otra banda, llamada Smile, con la que editó un single. Inesperadamente, Tim Stafell, el cantante de la banda, abandonó el grupo; para buscar su sustituto, los miembros de Smile decidieron hacer una prueba al cantante de Sour Milk Sea, que no era otro que Freddie Mercury, y fue rápidamente admitido.</p>
+                                  
+                                                                      <p>Por aquel entonces Freddie Mercury ya estaba acostumbrado a aparecer en público y sobre el escenario con vestimentas llamativas y atrevidas. Freddie contaba con una prodigiosa voz y sobrados conocimientos de piano. A esto se unió una base rítmica firmada por John Richard Deacon (nacido en 1951) al bajo y la batería de Roger Meadows Taylor (nacido en 1949).</p>
+                                  
+                                                                      <p>El grupo comenzó a grabar maquetas y la compañía discográfica EMI, después de verlos actuar en el Marquee de Londres, se interesó por ellos. Ya en 1973, Queen se encerró por primera vez en los Trident Studios de Londres para grabar, bajo la supervisión de Roy Thomas Baker en los controles, su primer trabajo, Queen I, demostración de un rock agresivo, con el sonido que en adelante caracterizaría a la banda. Le siguió, a principios de 1974, Queen II, en plena evolución y búsqueda de madurez.</p>
+                                  
+                                                                      <p>A Sheer heart attack, de 1974, fue para muchos un álbum de transición. Incluía temas como Brighton rock o Now I´m here. El siguiente, A night at the opera, sería el disco que llevaría al estrellato a Queen. En 1975, el single de lanzamiento Bohemian Rhapsody fue un éxito mundial. La diferencia más notable respecto a trabajos anteriores radica en la intervención de todos los integrantes del grupo en la composición de los temas que integran el álbum, que anteriormente estaba en manos de May y Mercury.</p>
+                                  
+                                                                      <p>Al año siguiente editaron otro elepé que fue la continuación del éxito anterior: A day at the races. En News of the World (1977), en cambio, se aprecian nuevos elementos; la capacidad compositora de cada uno de los componentes llegó a su punto álgido en canciones como We are the champions, que sería en adelante un tema imprescindible en todos los conciertos de la banda.</p>
+                                  
+                                                                      <p>El álbum Jazz (1978) vino a iniciar una época de transición en la que las giras vinieron a salvar el grupo de lo que parecía una crisis creativa. En 1979 se editó el directo llamado Live killers. La marcha de Roy Thomas Baker de los controles contribuyó en 1980 a que prosiguiese la evolución del grupo, tal como se evidencia en The game (1980). Ese mismo año Queen tuvo su primera experiencia en el cine, componiendo la banda sonora de Flash Gordon de Dino de Laurentis.</p>
+                                  
+                                                                      <p>Tras el recopilatorio de 1981, se editó Hot space, en el que compartieron el tema Under Pressure con David Bowie; el álbum fue criticado por sus más acérrimos seguidores. Tres años más tarde, en 1984, se editó The works, el disco que devolvería al grupo la popularidad perdida. El éxito comercial volvió de la mano del elepé A kind of magic, que contiene el célebre tema Who wants to live forever. El álbum se utilizó en las bandas sonoras de las películas Iron Eagle y Los inmortales. Después de una macrogira saldría el directo Live Magic, y el grupo decidió tomarse un respiro.</p>
+                                  
+                                                                      <p>En 1989 se lanzó The miracle. El último elepé en estudio editado con anterioridad al fallecimiento de Mercury, víctima del sida, llevó el título de Innuendo. Tras la muerte de Freddie, Brian May comenzó a editar en solitario, y en noviembre de 1995 se publicó su álbum Made in Heaven, grabado en los estudios de Montreaux, en cuyas proximidades residía el líder del grupo en sus momentos de descanso.</p>
+                                  
+                                                                      <p>En 2002, May y Taylor proyectaron la puesta en marcha del musical We will rock you, un espectáculo para trasladar a los escenarios de medio mundo los temas más populares del grupo. Por otro lado, May anunció en diciembre de 2004 que la banda se embarcaría durante 2005 en una gira mundial en la que el lugar de Mercury sería ocupado por Paul Rodgers, el que fuera cantante de Bad Company (antes se habían barajado otros nombres, como George Michael).
+                                                                      </p>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                        <button class="close-button" data-close aria-label="Close" type="button">
+                                                          <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                      </div>
+                                  <div class="small-12 medium-4 medium-offset-4 columns align-center">
+                                    <a id="biografia" class="dashboard-nav-card biografia" href="#" data-open="queensBiografia">
+                                      <i class="dashboard-nav-card-icon fi-results-demographics" aria-hidden="true"></i>
+                                      <h3 class="dashboard-nav-card-title">Biografía</h3>
+                                    </a>                   
+                                  </div>
+                
+                                  <div class="small-12 medium-6 columns">
+                                    <div id="queen-uno" class="card" data-animation="scale-in-up">
+                                      <img src="https://bulk2.destructoid.com/ul/150736-queen.jpg" alt="Queen">
+                                      <div class="card-divider">Queen</div>
+                                    </div>
+                                  </div>
+                
+                                  <div class="small-12 medium-6 columns">
+                                    <div id="queen-dos" class="card" data-animation="scale-in-down">
+                                      <img src="https://bulk2.destructoid.com/ul/150736-queen.jpg" alt="Queen">
+                                      <div class="card-divider">Queen</div>
+                                    </div>
+                                  </div>
+                
+                                  <div class="small-12 medium-6 columns">
+                                    <div id="queen-tres" class="card" data-animation="spin-in">
+                                      <img src="https://bulk2.destructoid.com/ul/150736-queen.jpg" alt="Queen">
+                                      <div class="card-divider">Queen</div>
+                                    </div>
+                                  </div>
+                
+                                  <div class="small-12 medium-6 columns">
+                                    <div id="queen-cuatro" class="card" data-animation="spin-in-ccw">
+                                      <img src="https://bulk2.destructoid.com/ul/150736-queen.jpg" alt="Queen">
+                                      <div class="card-divider">Queen</div>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                
+                          
+              <!-- /Lineup -->
+    
+              <!-- Pricing Table -->
+                          <section id="pricing-container" data-magellan-target="pricing-container">
+                            <h3 class="text-center">Comprar Boletos</h3>
+                
+                            <div class="row">
+                
+                              <div class="small-6 small-offset-3 columns">
+                                <ul class="pricing-table">
+                                  <li class="title">Platino</li>
+                                  <li class="price">$120</li>
+                                  <li class="description">Acceso viernes, sábado y domingo</li>
+                                  <li>2 bebidas por cada día</li>
+                                  <li>Parqueadero incluido todos los días</li>
+                                  <li>Participa de un sorteo para acceder al backstage</li>
+                                  <li><a class="button" href="#">Comprar platino</a></li>
+                                </ul>          
+                              </div>
+                
+                            </div>
+                
+                            <div class="row" data-equalizer data-equalize-on="small">
+                
+                              <div class="small-5 small-offset-1 columns">
+                                <ul class="pricing-table">
+                                  <li class="title">Gold</li>
+                                  <li class="price">$90</li>
+                                  <li class="description">Acceso viernes, sábado y domingo</li>
+                                  <li data-equalizer-watch>Podras comprar una bebida para cada día</li>
+                                  <li>-</li>
+                                  <li>-</li>
+                                  <li><a class="button" href="#">Comprar Gold</a></li>
+                                </ul>
+                              </div>
+                
+                              <div class="small-5 columns">
+                                <ul class="pricing-table">
+                                  <li class="title">Silver</li>
+                                  <li class="price">$65</li>
+                                  <li class="description">Acceso viernes, sábado y domingo</li>
+                                  <li data-equalizer-watch >-</li>
+                                  <li>-</li>
+                                  <li>-</li>
+                                  <li><a class="button" href="#">Comprar Silver</a></li>
+                                </ul>
+                              </div>
+                
+                            </div>
+                          </section>
+              <!-- /Pricing Table> -->
+    
+              <!-- Suscribete -->
+                          <section id="suscribete-container" data-magellan-target="suscribete-container">
+                            <h3 class="text-center">Suscríbete</h3>
+                            <h4 class="text-center"><small>Y recive las últimas novedades del concierto</small></h4>
+                            <!-- el atributo data-abide es parte de un plugin de foundation para validar y mostrar errores de un formulario llamado bide -->
+                            <form action="" method="" novalidate data-abide>
+                              <!-- al utilizar el atributo data-abide-error le dice a foundation que el elemento se debe de mostrar al aocurrir un error de validacion -->
+                              <div data-abide-error  style="display: none;" class="row columns small-12 medium-6 text-center error-container">
+                                <p>
+                                  <i class="fi-alert"></i>Ingresó un correo electrónico no valido
+                                </p>
+                              </div>
+                              <div class="row columns small-12 medium-6">
+                                <div class="input-group">
+                                  <span class="input-group-label"><i class="fi-mail"></i></span>
+                                  <input type="email" name="email" required placeholder="to@correo.com" class="input-group-field">
+                                  <div class="input-group-button">
+                                    <input type="submit" value="Suscríbete" class="button">
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          </section>
+              <!-- /Suscribete -->
+    
+              <!-- Info -->
+                          <section id="info-container" data-magellan-target="info-container">
+                            <h3 class="text-center">Información</h3>
+                            <div class="info-map" data-interchange="[assets/map.small.html, small], [assets/map.html, medium]"></div>
+                          </section>
+              <!-- /info -->
+            </div>
+          </div>
+        </div>
+    
+    
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
